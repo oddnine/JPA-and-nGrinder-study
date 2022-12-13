@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS MEMBER
 (
-    id       BIGINT      NOT NULL,
+    id       BIGINT      NOT NULL AUTO_INCREMENT,
     name     VARCHAR(45) NOT NULL,
     email    VARCHAR(45) NOT NULL,
     password VARCHAR(45) NOT NULL,
@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS MEMBER
 
 CREATE TABLE IF NOT EXISTS POST
 (
-    id           BIGINT      NOT NULL,
+    id           BIGINT      NOT NULL AUTO_INCREMENT,
     sentence     TEXT        NOT NULL,
     title        VARCHAR(45) NOT NULL,
     date         DATETIME    NOT NULL,
@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS POST
 
 CREATE TABLE IF NOT EXISTS POST_LIKE
 (
-    id           BIGINT NOT NULL,
+    id           BIGINT NOT NULL AUTO_INCREMENT,
     post_id_fk   BIGINT NOT NULL,
     member_id_fk BIGINT NOT NULL,
     PRIMARY KEY (id),
@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS POST_LIKE
 
 CREATE TABLE IF NOT EXISTS COMMENT
 (
-    id           BIGINT   NOT NULL,
+    id           BIGINT   NOT NULL AUTO_INCREMENT,
     date         DATETIME NOT NULL,
     member_id_fk BIGINT   NOT NULL,
     post_id_fk   BIGINT   NOT NULL,
@@ -71,7 +71,7 @@ CREATE TABLE IF NOT EXISTS COMMENT
 
 CREATE TABLE IF NOT EXISTS COMMENT_LIKE
 (
-    id            BIGINT NOT NULL,
+    id            BIGINT NOT NULL AUTO_INCREMENT,
     comment_id_fk BIGINT NOT NULL,
     member_id_fk  BIGINT NOT NULL,
     PRIMARY KEY (id),
@@ -92,7 +92,7 @@ CREATE TABLE IF NOT EXISTS COMMENT_LIKE
 
 CREATE TABLE IF NOT EXISTS HASHTAG
 (
-    id         BIGINT      NOT NULL,
+    id         BIGINT      NOT NULL AUTO_INCREMENT,
     category   VARCHAR(45) NOT NULL,
     post_id_fk BIGINT      NOT NULL,
     PRIMARY KEY (id),

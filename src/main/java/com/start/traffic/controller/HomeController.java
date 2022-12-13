@@ -1,17 +1,17 @@
 package com.start.traffic.controller;
 
-import lombok.extern.slf4j.Slf4j;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-@ResponseBody
-@Slf4j
+@RequiredArgsConstructor
 public class HomeController {
-    @GetMapping("home")
+
+    @GetMapping("/")
     public String home() {
-        log.info("connected");
-        return "hello";
+        return "home";
     }
+
+
 }

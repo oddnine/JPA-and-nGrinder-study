@@ -11,7 +11,6 @@ import java.time.LocalDateTime;
 public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "comment_id_fk")
     private Long id;
     private LocalDateTime date;
     @ManyToOne(fetch = FetchType.LAZY)
