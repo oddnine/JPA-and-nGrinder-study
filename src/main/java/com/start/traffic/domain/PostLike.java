@@ -1,31 +1,21 @@
 package com.start.traffic.domain;
 
 import jakarta.persistence.*;
-import lombok.*;
-
-import java.time.LocalDateTime;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-public class Comment {
+public class PostLike {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "comment_id_fk")
     private Long id;
-    private LocalDateTime date;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id_fk")
     private Member memberIdFk;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "post_id_fk")
     private Post postIdFk;
-
-    @Builder
-    public Comment(Long id, LocalDateTime date, Member memberIdFk, Post postIdFk) {
-        this.id = id;
-        this.date = date == null ? LocalDateTime.now() : date;
-        this.memberIdFk = memberIdFk;
-        this.postIdFk = postIdFk;
-    }
 }

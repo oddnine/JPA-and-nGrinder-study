@@ -28,7 +28,7 @@ public class Post {
         this.id = id;
         this.sentence = sentence;
         this.title = title;
-        this.date = date;
+        this.date = date == null ? LocalDateTime.now() : date;
         this.memberIdFk = memberIdFk;
     }
 }

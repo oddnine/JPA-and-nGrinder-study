@@ -16,6 +16,6 @@ public class CommentLike {
     @JoinColumn(name = "member_id_fk")
     private Member memberIdFk;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "post_id_fk")
-    private Post commentId;
+    @JoinColumn(name = "comment_id_fk")
+    private Comment commentIdFk;
 }
