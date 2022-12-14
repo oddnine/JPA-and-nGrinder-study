@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <link th:href="@{/css/bootstrap.min.css}"
+          href="../css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .container {
+            max-width: 560px;
+        }
+    </style>
+    <th:block>
+        <script th:inline="javascript">
+
+            function teamPopup(id, name) {
+                window.open("/teams/" + id, "popup", "width=700px,height=500px,top=200px,left=200px;");
+            }
+
+            function reload() {
+                setTimeout(function () {
+                    location.reload();
+                }, 300);
+            }
+
+        </script>
+    </th:block>
+</head>
+<body>
+
+<div class="container" style="max-width: 900px">
+    <div class="py-5 text-center">
+        <h2>혁키 게시판</h2>
+    </div>
+
+    <form th:object="${post}" method="get" class="form-inline">
+        <div class="row">
+            <div class="col">
+                <input type="text" th:field="*{title}" class="form-control" placeholder="제목"/>
+            </div>
+            <div class="col">
+                <button type="submit" class="btn btn-secondary mb-2">검색</button>
+            </div>
+            <div class="col">
+            </div>
+            <div class="col">
+                <div class="col">
+                    <button class="btn btn-primary float-end"
+                            th:onclick="|location.href='@{/teams/save}'|"
+                            type="button">게시글 작성
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+    <hr class="my-4">
+    <div>
+        <table id="table" class="table">
+            <thead>
+            <tr>
+                <th>번호</th>
+                <th>제목</th>
+                <th>작성자</th>
+                <th>날짜</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="post : ${posts}">
+                <td id="userId" th:text="${post.getId()}">번호</td>
+                <td><a th:href="@{/post/details(id=${post.getId()})}" th:text="${post.getTitle()}">제목</a></td>
+                <td th:text="${post.memberIdFk.getName()}">작성자</td>
+                <td th:text="${post.getDate()}">날짜</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

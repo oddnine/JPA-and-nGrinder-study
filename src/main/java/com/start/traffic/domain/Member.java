@@ -24,4 +24,11 @@ public class Member {
         this.email = email;
         this.password = password;
     }
+
+    public Boolean validatePassword(String password){
+        if(!this.password.equals(password)){
+            return false;
+        }
+        return true;
+    }
 }

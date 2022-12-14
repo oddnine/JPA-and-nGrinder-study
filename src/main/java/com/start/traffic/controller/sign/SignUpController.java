@@ -21,7 +21,7 @@ public class SignUpController {
     }
 
     @PostMapping
-    public String save(@ModelAttribute("member") SignForm form) {
+    public String save(@ModelAttribute("signForm") SignForm form) {
         Member member = Member.builder()
                 .email(form.getEmail())
                 .password(form.getPassword())

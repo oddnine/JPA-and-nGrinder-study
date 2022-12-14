@@ -1,7 +1,7 @@
 package com.start.traffic.service;
 
 import com.start.traffic.domain.Member;
-import com.start.traffic.repository.MemberRepository;
+import com.start.traffic.repository.member.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,6 +27,11 @@ public class MemberService {
                 .ifPresent(m -> {
                     throw new IllegalStateException("이미 존재하는 회원입니다.");
                 });
+    }
+
+    public Boolean signIn(Member member) {
+        Member mem = memberRepository.findByEmail(member.getEmail()).get();
+        return mem.validatePassword(member.getPassword());
     }
 
     public List<Member> findMembers() {

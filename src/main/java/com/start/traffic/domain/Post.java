@@ -18,7 +18,7 @@ public class Post {
     private String sentence;
     private String title;
     private LocalDateTime date;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "member_id_fk")
     private Member memberIdFk;
 
