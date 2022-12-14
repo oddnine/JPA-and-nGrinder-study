@@ -33,6 +33,6 @@ public class SignInController {
             return "sign/signin";
         }
 
-        return "redirect:/board?page=0";
+        return "redirect:/board";
     }
 }

@@ -77,6 +77,27 @@
             </tbody>
         </table>
     </div>
-</div>
+
+    <div class="pagination justify-content-center">
+        <div class="pagination justify-content-center">
+            <a class="btn btn-light"
+               th:href="@{/board?(page=${previous})}"
+               type="button"><
+            </a>
+            &nbsp
+            <th:block th:each="page : ${#numbers.sequence(startPage, endPage)}">
+                <a class="btn btn-light" th:if="${page != nowPage}"
+                   th:href="@{/board?(page=${page-1})}"
+                   th:text="${page}"></a>
+                <strong class="btn btn-light" th:if="${page == nowPage}"
+                        th:text="${page}" style="color : red"></strong>
+            </th:block>
+            &nbsp
+            <a class="btn btn-light"
+               th:href="@{/board?(page=${next})}"
+               type="button">>
+            </a>
+        </div>
+    </div>
 </body>
 </html>

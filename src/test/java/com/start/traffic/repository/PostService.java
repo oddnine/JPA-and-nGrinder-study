@@ -40,6 +40,7 @@ public class PostService {
     }
 
     @Test
+    @Transactional
     public void findAll() {
         List<Post> all = postRepository.findAll();
         for (Post post : all) {
