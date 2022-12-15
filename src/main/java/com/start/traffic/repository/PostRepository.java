@@ -1,4 +1,4 @@
-package com.start.traffic.repository.post;
+package com.start.traffic.repository;
 
 import com.start.traffic.domain.Member;
 import com.start.traffic.domain.Post;

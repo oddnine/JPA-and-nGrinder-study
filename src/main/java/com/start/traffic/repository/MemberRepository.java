@@ -1,4 +1,4 @@
-package com.start.traffic.repository.member;
+package com.start.traffic.repository;
 
 import com.start.traffic.domain.Member;
 import org.springframework.data.jpa.repository.JpaRepository;

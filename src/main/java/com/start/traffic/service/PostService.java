@@ -1,9 +1,8 @@
 package com.start.traffic.service;
 
-import com.start.traffic.domain.Member;
 import com.start.traffic.domain.Post;
-import com.start.traffic.repository.member.MemberRepository;
-import com.start.traffic.repository.post.PostRepository;
+import com.start.traffic.repository.MemberRepository;
+import com.start.traffic.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

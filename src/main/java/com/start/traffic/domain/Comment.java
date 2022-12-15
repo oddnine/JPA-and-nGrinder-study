@@ -12,6 +12,7 @@ public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String sentence;
     private LocalDateTime date;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id_fk")
@@ -21,8 +22,9 @@ public class Comment {
     private Post postIdFk;
 
     @Builder
-    public Comment(Long id, LocalDateTime date, Member memberIdFk, Post postIdFk) {
+    public Comment(Long id, String sentence, LocalDateTime date, Member memberIdFk, Post postIdFk) {
         this.id = id;
+        this.sentence = sentence;
         this.date = date == null ? LocalDateTime.now() : date;
         this.memberIdFk = memberIdFk;
         this.postIdFk = postIdFk;

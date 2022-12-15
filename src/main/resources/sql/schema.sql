@@ -50,6 +50,7 @@ CREATE TABLE IF NOT EXISTS POST_LIKE
 CREATE TABLE IF NOT EXISTS COMMENT
 (
     id           BIGINT   NOT NULL AUTO_INCREMENT,
+    sentence     TEXT     NOT NULL,
     date         DATETIME NOT NULL,
     member_id_fk BIGINT   NOT NULL,
     post_id_fk   BIGINT   NOT NULL,

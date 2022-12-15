@@ -1,7 +1,7 @@
 package com.start.traffic.service;
 
 import com.start.traffic.domain.Member;
-import com.start.traffic.repository.member.MemberRepository;
+import com.start.traffic.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

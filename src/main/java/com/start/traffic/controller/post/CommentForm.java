@@ -1,17 +1,15 @@
-package com.start.traffic.dto;
+package com.start.traffic.controller.post;
 
 import com.start.traffic.domain.Member;
+import com.start.traffic.domain.Post;
 import lombok.Data;
-import lombok.Getter;
 
 import java.time.LocalDateTime;
 
 @Data
-@Getter
-public class PostRequestDTO {
+public class CommentForm {
     private Long id;
     private String sentence;
-    private String title;
-    private LocalDateTime date;
     private Member memberIdFk;
+    private Post postIdFk;
 }
