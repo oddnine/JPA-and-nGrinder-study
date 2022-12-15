@@ -29,9 +29,12 @@ public class MemberService {
                 });
     }
 
-    public Boolean signIn(Member member) {
+    public Member signIn(Member member) {
         Member mem = memberRepository.findByEmail(member.getEmail()).get();
-        return mem.validatePassword(member.getPassword());
+        if(mem.validatePassword(member.getPassword())){
+            return mem;
+        }
+        return null;
     }
 
     public List<Member> findMembers() {

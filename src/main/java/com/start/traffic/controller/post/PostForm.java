@@ -1,4 +1,4 @@
-package com.start.traffic.controller.board;
+package com.start.traffic.controller.post;
 
 import com.start.traffic.domain.Member;
 import lombok.Data;

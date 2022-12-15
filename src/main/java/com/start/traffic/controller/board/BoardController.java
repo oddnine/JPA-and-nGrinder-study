@@ -1,5 +1,6 @@
 package com.start.traffic.controller.board;
 
+import com.start.traffic.controller.post.PostForm;
 import com.start.traffic.domain.Post;
 import com.start.traffic.service.PostService;
 import lombok.RequiredArgsConstructor;
@@ -21,7 +22,14 @@ public class BoardController {
 
     @GetMapping
     public String postList(@ModelAttribute("post") PostForm form, Model model, @PageableDefault(sort = "id", direction = Sort.Direction.DESC) Pageable pageable) {
-        Page<Post> posts = postService.pageList(pageable);
+        try {
+            form.getTitle().isEmpty();
+        } catch (Exception e) {
+            form.setTitle("");
+        }
+
+        Page<Post> posts = postService.findByTitleLikePageList(form.getTitle(), pageable);
+
         int nowPage = posts.getPageable().getPageNumber() + 1;
         model.addAttribute("posts", posts);
         model.addAttribute("previous", pageable.previousOrFirst().getPageNumber());

@@ -47,7 +47,7 @@
             <div class="col">
                 <div class="col">
                     <button class="btn btn-primary float-end"
-                            th:onclick="|location.href='@{/teams/save}'|"
+                            th:onclick="|location.href='@{/post/save}'|"
                             type="button">게시글 작성
                     </button>
                 </div>
@@ -70,7 +70,7 @@
             <tbody>
             <tr th:each="post : ${posts}">
                 <td id="userId" th:text="${post.getId()}">번호</td>
-                <td><a th:href="@{/post/details(id=${post.getId()})}" th:text="${post.getTitle()}">제목</a></td>
+                <td><a th:href="@{/post(id=${post.getId()})}" th:text="${post.getTitle()}">제목</a></td>
                 <td th:text="${post.memberIdFk.getName()}">작성자</td>
                 <td th:text="${post.getDate()}">날짜</td>
             </tr>

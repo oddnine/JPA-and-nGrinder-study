@@ -28,8 +28,9 @@ public class PostService {
         return postRepository.findById(id).get();
     }
 
-    public List<Post> findByTitle(String title) {
-        return postRepository.findByTitle(title);
+
+    public Page<Post> findByTitleLikePageList(String title, Pageable pageable) {
+        return postRepository.findByTitleContains(title, pageable);
     }
 
     @Transactional(readOnly = true)

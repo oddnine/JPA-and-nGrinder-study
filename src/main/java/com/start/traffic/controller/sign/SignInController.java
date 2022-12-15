@@ -2,6 +2,9 @@ package com.start.traffic.controller.sign;
 
 import com.start.traffic.domain.Member;
 import com.start.traffic.service.MemberService;
+import com.start.traffic.session.SessionConst;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -22,16 +25,21 @@ public class SignInController {
     }
 
     @PostMapping
-    public String signIn(@ModelAttribute("signForm") SignForm form, BindingResult bindingResult) {
+    public String signIn(@ModelAttribute("signForm") SignForm form, BindingResult bindingResult, HttpServletRequest request) {
         Member member = Member.builder()
                 .email(form.getEmail())
                 .password(form.getPassword())
                 .build();
 
-        if (!memberService.signIn(member)) {
+        Member mem = memberService.signIn(member);
+
+        if (mem == null) {
             bindingResult.reject("loginFail", "아이디 또는 비밀번호가 맞지 않습니다.");
             return "sign/signin";
         }
+
+        HttpSession session = request.getSession();
+        session.setAttribute(SessionConst.LOGIN_MEMBER, mem);
 
         return "redirect:/board";
     }
