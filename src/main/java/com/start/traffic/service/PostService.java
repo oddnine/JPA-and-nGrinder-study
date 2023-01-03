@@ -1,6 +1,7 @@
 package com.start.traffic.service;
 
 import com.start.traffic.domain.Post;
+import com.start.traffic.dto.PostDto;
 import com.start.traffic.repository.MemberRepository;
 import com.start.traffic.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
@@ -28,8 +29,8 @@ public class PostService {
     }
 
 
-    public Page<Post> findByTitleLikePageList(String title, Pageable pageable) {
-        return postRepository.findByTitleContains(title, pageable);
+    public Page<PostDto> findByTitleLikePageList(String title, Pageable pageable) {
+        return postRepository.findByTitleContains(title, pageable).map(post -> new PostDto(post.getId(), post.getSentence(), post.getTitle(), post.getDate(), post.getMemberIdFk()));
     }
 
     @Transactional(readOnly = true)
