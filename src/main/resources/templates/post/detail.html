@@ -44,7 +44,20 @@
         <hr class="my-4">
     </form>
 
-    <form th:action th:object="${comment}" method="post">
+    <div>
+        <div class="row" th:name="_method" value="PATCH">
+            <div class="col">
+                <button class="w-100 btn btn-success btn-lg" type="submit">추천</button>
+            </div>
+            <div class="col">
+                <button class="w-100 btn btn-danger btn-lg" type="submit">비추천</button>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <form th:action th:object="${comments}" method="post">
         <div>
             <div class="row">
                 <div class="col">

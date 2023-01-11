@@ -2,6 +2,7 @@ package com.start.traffic.domain;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -18,4 +19,11 @@ public class PostLike {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "post_id_fk")
     private Post postIdFk;
+
+    @Builder
+    public PostLike(Long id, Member memberIdFk, Post postIdFk) {
+        this.id = id;
+        this.memberIdFk = memberIdFk;
+        this.postIdFk = postIdFk;
+    }
 }

@@ -1,8 +1,10 @@
 package com.start.traffic.service;
 
 import com.start.traffic.domain.Post;
+import com.start.traffic.domain.PostLike;
 import com.start.traffic.dto.PostDto;
 import com.start.traffic.repository.MemberRepository;
+import com.start.traffic.repository.PostLikeRepository;
 import com.start.traffic.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
